@@ -1075,6 +1075,77 @@ body {
   font-weight: 700;
 }
 
+.summary-card {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.summary-card:hover {
+  background: var(--bg-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
+}
+
+/* ── Carte sélectionnée (filtre actif) ── */
+.summary-card--selected {
+  transform: translateY(-1px);
+}
+
+.summary-card--selected.summary-card--ok {
+  background: var(--status-ok-bg);
+  border-color: var(--status-ok);
+  box-shadow: 0 0 12px rgba(0, 214, 143, 0.15);
+}
+
+.summary-card--selected.summary-card--fault {
+  background: var(--status-fault-bg);
+  border-color: var(--status-fault);
+  box-shadow: 0 0 12px rgba(255, 61, 113, 0.15);
+}
+
+.summary-card--selected.summary-card--alert {
+  background: var(--status-alert-bg);
+  border-color: var(--status-alert);
+  box-shadow: 0 0 12px rgba(255, 170, 0, 0.15);
+}
+
+.summary-card--selected.summary-card--offline {
+  background: var(--status-offline-bg);
+  border-color: var(--status-offline);
+  box-shadow: 0 0 12px rgba(85, 102, 119, 0.15);
+}
+
+/* ── Cartes en retrait (non sélectionnées quand un filtre est actif) ── */
+.summary-card--dimmed {
+  opacity: 0.4;
+}
+
+.summary-card--dimmed:hover {
+  opacity: 0.75;
+}
+
+/* ── Bouton reset filtre ── */
+.sidebar-summary__filter-hint {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--accent-blue);
+  cursor: pointer;
+  transition: color 0.15s ease;
+  letter-spacing: 0.3px;
+}
+
+.sidebar-summary__filter-hint:hover {
+  color: var(--accent-cyan);
+}
+
+/* ── Compteur dans l'en-tête de la liste ── */
+.sensor-list__count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
 /* ═══════════════════════════════════════════════════════
    COMMAND PANEL
    ═══════════════════════════════════════════════════════ */

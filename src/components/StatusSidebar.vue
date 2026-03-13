@@ -34,12 +34,10 @@ const filteredSensors = computed(() => {
   return list
 })
 
-const filters = [
-  { key: 'all', label: 'Tous' },
-  { key: 'fault', label: 'Défauts' },
-  { key: 'alert', label: 'Alertes' },
-  { key: 'ok', label: 'OK' }
-]
+// Toggle filter: click same card again → back to 'all'
+function toggleFilter(status) {
+  activeFilter.value = activeFilter.value === status ? 'all' : status
+}
 
 const tabs = [
   { key: 'status', label: 'État' },
@@ -69,20 +67,51 @@ function eventTypeLabel(type) {
     <!-- TAB: Status -->
     <template v-if="activeTab === 'status'">
       <div class="sidebar-summary">
-        <div class="sidebar-summary__header"><span class="sidebar-summary__label">Résumé · {{ floorInfo?.label }}</span></div>
+        <div class="sidebar-summary__header">
+          <span class="sidebar-summary__label">Résumé · {{ floorInfo?.label }}</span>
+          <span v-if="activeFilter !== 'all'" class="sidebar-summary__filter-hint" @click="activeFilter = 'all'">
+            ✕ Réinitialiser
+          </span>
+        </div>
         <div class="sidebar-summary__cards">
-          <div class="summary-card summary-card--ok"><div class="summary-card__count">{{ stats.ok }}</div><div class="summary-card__label">Normal</div></div>
-          <div class="summary-card summary-card--fault"><div class="summary-card__count">{{ stats.fault }}</div><div class="summary-card__label">Défaut</div></div>
-          <div class="summary-card summary-card--alert"><div class="summary-card__count">{{ stats.alert }}</div><div class="summary-card__label">Alerte</div></div>
-          <div class="summary-card summary-card--offline"><div class="summary-card__count">{{ stats.offline }}</div><div class="summary-card__label">Hors ligne</div></div>
+          <div
+            class="summary-card summary-card--ok"
+            :class="{ 'summary-card--selected': activeFilter === 'ok', 'summary-card--dimmed': activeFilter !== 'all' && activeFilter !== 'ok' }"
+            @click="toggleFilter('ok')"
+          >
+            <div class="summary-card__count">{{ stats.ok }}</div>
+            <div class="summary-card__label">Normal</div>
+          </div>
+          <div
+            class="summary-card summary-card--fault"
+            :class="{ 'summary-card--selected': activeFilter === 'fault', 'summary-card--dimmed': activeFilter !== 'all' && activeFilter !== 'fault' }"
+            @click="toggleFilter('fault')"
+          >
+            <div class="summary-card__count">{{ stats.fault }}</div>
+            <div class="summary-card__label">Défaut</div>
+          </div>
+          <div
+            class="summary-card summary-card--alert"
+            :class="{ 'summary-card--selected': activeFilter === 'alert', 'summary-card--dimmed': activeFilter !== 'all' && activeFilter !== 'alert' }"
+            @click="toggleFilter('alert')"
+          >
+            <div class="summary-card__count">{{ stats.alert }}</div>
+            <div class="summary-card__label">Alerte</div>
+          </div>
+          <div
+            class="summary-card summary-card--offline"
+            :class="{ 'summary-card--selected': activeFilter === 'offline', 'summary-card--dimmed': activeFilter !== 'all' && activeFilter !== 'offline' }"
+            @click="toggleFilter('offline')"
+          >
+            <div class="summary-card__count">{{ stats.offline }}</div>
+            <div class="summary-card__label">Hors ligne</div>
+          </div>
         </div>
       </div>
       <div class="sensor-list">
         <div class="sensor-list__header">
           <span class="sensor-list__label">Capteurs</span>
-          <div class="sensor-list__filter">
-            <button v-for="f in filters" :key="f.key" class="filter-btn" :class="{ 'filter-btn--active': activeFilter === f.key }" @click="activeFilter = f.key">{{ f.label }}</button>
-          </div>
+          <span class="sensor-list__count">{{ filteredSensors.length }}/{{ sensors.length }}</span>
         </div>
         <div class="sensor-list__items">
           <div v-for="sensor in filteredSensors" :key="sensor.id"
