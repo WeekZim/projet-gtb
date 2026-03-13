@@ -75,13 +75,13 @@ const roomStatus = computed(() => {
       <!-- Room live readout -->
       <div class="room-readout">
         <div v-if="tempSensor" class="room-readout__item">
-          <span class="room-readout__icon">🌡</span>
+          <span class="room-readout__icon"><i class="bx bxs-thermometer"></i></span>
           <span class="room-readout__value" :class="{ 'room-readout__value--alert': tempSensor.status !== 'ok' }">
             {{ tempSensor.status === 'ok' ? tempSensor.value : tempSensor.status === 'fault' ? 'ERR' : tempSensor.value }}
           </span>
         </div>
         <div v-if="humSensor" class="room-readout__item">
-          <span class="room-readout__icon">💧</span>
+          <span class="room-readout__icon"><i class='bx bx-droplet' ></i></span>
           <span class="room-readout__value">{{ humSensor.value }}</span>
         </div>
         <div v-if="co2Sensor" class="room-readout__item">
@@ -91,7 +91,7 @@ const roomStatus = computed(() => {
           </span>
         </div>
         <div v-if="lightSensor" class="room-readout__item">
-          <span class="room-readout__icon">💡</span>
+          <span class="room-readout__icon"><i class="bx bx-bulb"></i></span>
           <span class="room-readout__value">{{ lightSensor.value }}</span>
         </div>
       </div>
@@ -99,7 +99,7 @@ const roomStatus = computed(() => {
       <!-- Temperature Setpoint -->
       <div v-if="hasTemp" class="command-section">
         <div class="command-section__title">
-          <span>🌡 Consigne Température</span>
+          <span><i class="bx bxs-thermometer"></i> Consigne Température</span>
           <span class="command-section__live">
             Réel: <strong>{{ tempSensor?.value || '—' }}</strong>
           </span>
@@ -124,7 +124,7 @@ const roomStatus = computed(() => {
       <!-- HVAC Mode -->
       <div v-if="hasHvac || hasTemp" class="command-section">
         <div class="command-section__title">
-          <span>❄ Mode CVC</span>
+          <span><i class="bx bx-wind"></i> Mode CVC</span>
           <span class="command-section__live">{{ hvacSensor?.value || '—' }}</span>
         </div>
         <div class="mode-selector">
@@ -140,7 +140,7 @@ const roomStatus = computed(() => {
       <!-- Lighting -->
       <div v-if="hasLight" class="command-section">
         <div class="command-section__title">
-          <span>💡 Éclairage</span>
+          <span><i class="bx bx-bulb"></i> Éclairage</span>
           <span class="command-section__live">{{ lightSensor?.value || '—' }}</span>
         </div>
         <div class="slider-control">
@@ -175,7 +175,7 @@ const roomStatus = computed(() => {
       <!-- Door -->
       <div v-if="hasDoor" class="command-section">
         <div class="command-section__title">
-          <span>🚪 Contrôle d'accès</span>
+          <span><i class="bx bxs-door-open"></i> Contrôle d'accès</span>
           <span class="command-section__live">{{ doorSensor?.value || '—' }}</span>
         </div>
         <button class="door-toggle" :class="{ 'door-toggle--locked': cmd.doorLocked }"

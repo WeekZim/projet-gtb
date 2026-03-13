@@ -225,6 +225,7 @@ function onSvgMouseMove(e) {
             :sensor="sensor"
             :isSelected="selectedSensor?.id === sensor.id"
             @click="emit('select-sensor', sensor)"
+            :size="2"
           />
 
           <!-- ═══ COORDONNÉES AU SURVOL (aide placement) ═══ -->
