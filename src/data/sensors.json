@@ -19,13 +19,13 @@
     { "id": "bureau_102", "floor": 1, "label": "Bureau 102", "hasHvac": false, "hasLight": false }
   ],
   "sensors": [
-    { "id": "temp_rdc_01", "name": "Température Hall", "type": "temperature", "floor": 0, "room": "hall_principal", "x": 320, "y": 180, "status": "ok", "value": "21.4°C", "numValue": 21.4, "unit": "°C", "lastUpdate": "2026-03-08 10:15" },
-    { "id": "hum_rdc_01", "name": "Humidité Hall", "type": "humidity", "floor": 0, "room": "hall_principal", "x": 320, "y": 220, "status": "ok", "value": "45%", "numValue": 45, "unit": "%", "lastUpdate": "2026-03-08 10:15" },
-    { "id": "pres_rdc_01", "name": "Présence Accueil", "type": "presence", "floor": 0, "room": "accueil", "x": 180, "y": 150, "status": "ok", "value": "Détecté", "numValue": 1, "unit": "", "lastUpdate": "2026-03-08 10:12" },
-    { "id": "door_rdc_01", "name": "Porte Entrée Principale", "type": "door", "floor": 0, "room": "accueil", "x": 120, "y": 280, "status": "ok", "value": "Fermée", "numValue": 0, "unit": "", "lastUpdate": "2026-03-08 10:14" },
-    { "id": "fire_rdc_01", "name": "Détecteur Fumée Hall", "type": "smoke", "floor": 0, "room": "hall_principal", "x": 500, "y": 120, "status": "ok", "value": "Normal", "numValue": 0, "unit": "", "lastUpdate": "2026-03-08 10:10" },
+    { "id": "temp_rdc_01", "name": "Température Hall", "type": "temperature", "floor": 0, "room": "hall_principal", "x": 690, "y": 600, "status": "ok", "value": "21.4°C", "numValue": 21.4, "unit": "°C", "lastUpdate": "2026-03-08 10:15" },
+    { "id": "hum_rdc_01", "name": "Humidité Hall", "type": "humidity", "floor": 0, "room": "hall_principal", "x": 690, "y": 650, "status": "ok", "value": "45%", "numValue": 45, "unit": "%", "lastUpdate": "2026-03-08 10:15" },
+    { "id": "pres_rdc_01", "name": "Présence Accueil", "type": "presence", "floor": 0, "room": "accueil", "x": 540, "y": 775, "status": "ok", "value": "Détecté", "numValue": 1, "unit": "", "lastUpdate": "2026-03-08 10:12" },
+    { "id": "door_rdc_01", "name": "Porte Entrée Principale", "type": "door", "floor": 0, "room": "accueil", "x": 615, "y": 775, "status": "ok", "value": "Fermée", "numValue": 0, "unit": "", "lastUpdate": "2026-03-08 10:14" },
+    { "id": "fire_rdc_01", "name": "Détecteur Fumée Hall", "type": "smoke", "floor": 0, "room": "hall_principal", "x": 540, "y": 650, "status": "ok", "value": "Normal", "numValue": 0, "unit": "", "lastUpdate": "2026-03-08 10:10" },
     { "id": "hvac_rdc_01", "name": "CTA Hall Principal", "type": "hvac", "floor": 0, "room": "hall_principal", "x": 620, "y": 200, "status": "ok", "value": "Auto — 22°C", "numValue": 22, "unit": "", "lastUpdate": "2026-03-08 09:45" },
-    { "id": "light_rdc_01", "name": "Éclairage Accueil", "type": "light", "floor": 0, "room": "accueil", "x": 400, "y": 300, "status": "ok", "value": "85%", "numValue": 85, "unit": "%", "lastUpdate": "2026-03-08 10:00" },
+    { "id": "light_rdc_01", "name": "Éclairage Accueil", "type": "light", "floor": 0, "room": "accueil", "x": 615, "y": 650, "status": "ok", "value": "85%", "numValue": 85, "unit": "%", "lastUpdate": "2026-03-08 10:00" },
     { "id": "energy_rdc_01", "name": "Compteur Énergie RDC", "type": "energy", "floor": 0, "room": "local_technique_rdc", "x": 700, "y": 350, "status": "ok", "value": "12.4 kWh", "numValue": 12.4, "unit": "kWh", "lastUpdate": "2026-03-08 10:15" },
 
     { "id": "temp_r1_01", "name": "Température Open Nord", "type": "temperature", "floor": 1, "room": "open_space_nord", "x": 200, "y": 140, "status": "ok", "value": "22.1°C", "numValue": 22.1, "unit": "°C", "lastUpdate": "2026-03-08 10:14" },

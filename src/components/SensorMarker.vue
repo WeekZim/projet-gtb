@@ -17,7 +17,7 @@ const typeIcons = {
   temperature: '🌡',
   humidity: '💧',
   presence: '👁',
-  door: '🚪',
+  door: 'bx bxs-door-open',
   smoke: '🔥',
   hvac: '❄',
   light: '💡',
@@ -67,14 +67,13 @@ const statusClass = computed(() => `sensor-marker--${props.sensor.status}`)
       />
 
       <!-- Icon -->
-      <text
-        class="sensor-marker__icon"
+      <i
+        :class="'sensor-marker__icon' + icon"
         x="0"
         y="0.5"
         font-size="10"
       >
-        {{ icon }}
-      </text>
+  </i>
 
       <!-- Selection indicator -->
       <circle
