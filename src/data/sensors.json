@@ -1,0 +1,41 @@
+{
+  "building": {
+    "name": "Tour Horizon — Siège Central",
+    "address": "12 Avenue de la Défense, 92400 Courbevoie",
+    "floors": [
+      { "id": 0, "label": "RDC", "name": "Rez-de-chaussée — Accueil" },
+      { "id": 1, "label": "R+1", "name": "Étage 1 — Bureaux Open Space" }
+    ]
+  },
+  "rooms": [
+    { "id": "hall_principal", "floor": 0, "label": "Hall Principal", "hasHvac": true, "hasLight": true },
+    { "id": "accueil", "floor": 0, "label": "Accueil", "hasHvac": false, "hasLight": true },
+    { "id": "local_technique_rdc", "floor": 0, "label": "Local Technique", "hasHvac": true, "hasLight": true },
+    { "id": "couloir_est_rdc", "floor": 0, "label": "Couloir Est", "hasHvac": false, "hasLight": false },
+
+    { "id": "open_space_nord", "floor": 1, "label": "Open Space Nord", "hasHvac": true, "hasLight": true },
+    { "id": "open_space_centre", "floor": 1, "label": "Open Space Centre", "hasHvac": true, "hasLight": false },
+    { "id": "bureau_101", "floor": 1, "label": "Bureau 101", "hasHvac": false, "hasLight": false },
+    { "id": "bureau_102", "floor": 1, "label": "Bureau 102", "hasHvac": false, "hasLight": false }
+  ],
+  "sensors": [
+    { "id": "temp_rdc_01", "name": "Température Hall", "type": "temperature", "floor": 0, "room": "hall_principal", "x": 320, "y": 180, "status": "ok", "value": "21.4°C", "numValue": 21.4, "unit": "°C", "lastUpdate": "2026-03-08 10:15" },
+    { "id": "hum_rdc_01", "name": "Humidité Hall", "type": "humidity", "floor": 0, "room": "hall_principal", "x": 320, "y": 220, "status": "ok", "value": "45%", "numValue": 45, "unit": "%", "lastUpdate": "2026-03-08 10:15" },
+    { "id": "pres_rdc_01", "name": "Présence Accueil", "type": "presence", "floor": 0, "room": "accueil", "x": 180, "y": 150, "status": "ok", "value": "Détecté", "numValue": 1, "unit": "", "lastUpdate": "2026-03-08 10:12" },
+    { "id": "door_rdc_01", "name": "Porte Entrée Principale", "type": "door", "floor": 0, "room": "accueil", "x": 120, "y": 280, "status": "ok", "value": "Fermée", "numValue": 0, "unit": "", "lastUpdate": "2026-03-08 10:14" },
+    { "id": "fire_rdc_01", "name": "Détecteur Fumée Hall", "type": "smoke", "floor": 0, "room": "hall_principal", "x": 500, "y": 120, "status": "ok", "value": "Normal", "numValue": 0, "unit": "", "lastUpdate": "2026-03-08 10:10" },
+    { "id": "hvac_rdc_01", "name": "CTA Hall Principal", "type": "hvac", "floor": 0, "room": "hall_principal", "x": 620, "y": 200, "status": "ok", "value": "Auto — 22°C", "numValue": 22, "unit": "", "lastUpdate": "2026-03-08 09:45" },
+    { "id": "light_rdc_01", "name": "Éclairage Accueil", "type": "light", "floor": 0, "room": "accueil", "x": 400, "y": 300, "status": "ok", "value": "85%", "numValue": 85, "unit": "%", "lastUpdate": "2026-03-08 10:00" },
+    { "id": "energy_rdc_01", "name": "Compteur Énergie RDC", "type": "energy", "floor": 0, "room": "local_technique_rdc", "x": 700, "y": 350, "status": "ok", "value": "12.4 kWh", "numValue": 12.4, "unit": "kWh", "lastUpdate": "2026-03-08 10:15" },
+
+    { "id": "temp_r1_01", "name": "Température Open Nord", "type": "temperature", "floor": 1, "room": "open_space_nord", "x": 200, "y": 140, "status": "ok", "value": "22.1°C", "numValue": 22.1, "unit": "°C", "lastUpdate": "2026-03-08 10:14" },
+    { "id": "temp_r1_02", "name": "Température Open Centre", "type": "temperature", "floor": 1, "room": "open_space_centre", "x": 550, "y": 280, "status": "ok", "value": "22.3°C", "numValue": 22.3, "unit": "°C", "lastUpdate": "2026-03-08 10:13" },
+    { "id": "hum_r1_01", "name": "Humidité Open Nord", "type": "humidity", "floor": 1, "room": "open_space_nord", "x": 200, "y": 180, "status": "ok", "value": "42%", "numValue": 42, "unit": "%", "lastUpdate": "2026-03-08 10:14" },
+    { "id": "pres_r1_01", "name": "Présence Bureau 101", "type": "presence", "floor": 1, "room": "bureau_101", "x": 150, "y": 300, "status": "ok", "value": "Détecté", "numValue": 1, "unit": "", "lastUpdate": "2026-03-08 10:11" },
+    { "id": "pres_r1_02", "name": "Présence Bureau 102", "type": "presence", "floor": 1, "room": "bureau_102", "x": 400, "y": 300, "status": "ok", "value": "Aucune pésence", "numValue": 0, "unit": "", "lastUpdate": "2026-03-07 18:30" },
+    { "id": "hvac_r1_01", "name": "CTA Open Space", "type": "hvac", "floor": 1, "room": "open_space_nord", "x": 380, "y": 120, "status": "ok", "value": "Auto — 22°C", "numValue": 22, "unit": "", "lastUpdate": "2026-03-08 10:10" },
+    { "id": "light_r1_01", "name": "Éclairage Open Nord", "type": "light", "floor": 1, "room": "open_space_nord", "x": 250, "y": 220, "status": "ok", "value": "100%", "numValue": 100, "unit": "%", "lastUpdate": "2026-03-08 08:00" },
+    { "id": "fire_r1_01", "name": "Détecteur Fumée Open", "type": "smoke", "floor": 1, "room": "open_space_centre", "x": 600, "y": 160, "status": "ok", "value": "Normal", "numValue": 0, "unit": "", "lastUpdate": "2026-03-08 10:10" },
+    { "id": "co2_r1_01", "name": "CO₂ Open Space", "type": "co2", "floor": 1, "room": "open_space_nord", "x": 450, "y": 200, "status": "ok", "value": "650 ppm", "numValue": 650, "unit": "ppm", "lastUpdate": "2026-03-08 10:13" }
+  ]
+}
