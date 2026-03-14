@@ -5,6 +5,10 @@ import FloorSelector from './FloorSelector.vue'
 import FloorPlan from './FloorPlan.vue'
 import StatusSidebar from './StatusSidebar.vue'
 
+const viewMode = ref('plans') // plans | trades
+const selectedTrade = ref('cvc')
+const selectedSubTrade = ref(null)
+
 const building = sensorsData.building
 const rooms = sensorsData.rooms
 
@@ -299,6 +303,24 @@ onUnmounted(() => { clearInterval(clockTimer); clearInterval(simTimer); clearInt
       <span class="topbar__title">{{ building.name }}</span>
       <span class="topbar__subtitle">SUPERVISION GTB</span>
     </div>
+
+    <div class="topbar__center">
+      <button
+        class="topbar__tab"
+        :class="{ 'topbar__tab--active': viewMode === 'plans' }"
+        @click="viewMode = 'plans'; selectedSensor = null"
+      >
+        ▦ Vue Plans
+      </button>
+      <button
+        class="topbar__tab"
+        :class="{ 'topbar__tab--active': viewMode === 'trades' }"
+        @click="viewMode = 'trades'; selectedSensor = null"
+      >
+        ◉ Vue Métiers
+      </button>
+    </div>
+
     <div class="topbar__meta">
       <span class="topbar__clock">{{ currentDate }} — {{ currentTime }}</span>
       <div class="topbar__status-dot" title="Système en ligne"></div>
