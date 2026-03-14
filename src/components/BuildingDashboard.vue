@@ -4,6 +4,7 @@ import sensorsData from '../data/sensors.json'
 import FloorSelector from './FloorSelector.vue'
 import FloorPlan from './FloorPlan.vue'
 import StatusSidebar from './StatusSidebar.vue'
+import TradesView from './TradesView.vue'
 
 const viewMode = ref('plans') // plans | trades
 const selectedTrade = ref('cvc')
@@ -327,27 +328,42 @@ onUnmounted(() => { clearInterval(clockTimer); clearInterval(simTimer); clearInt
     </div>
   </div>
 
-  <div class="dashboard">
-    <div class="panel-collapsible panel-collapsible--left" :class="{ 'panel-collapsible--closed': !leftPanelOpen }">
-      <FloorSelector :floors="building.floors" :sensors="allSensors" :selectedFloor="selectedFloor" @select-floor="selectFloor" />
-    </div>
-    <button class="panel-toggle panel-toggle--left" :class="{ 'panel-toggle--collapsed': !leftPanelOpen }" @click="leftPanelOpen = !leftPanelOpen">
-      <span class="panel-toggle__icon">{{ leftPanelOpen ? '◂' : '▸' }}</span>
-    </button>
-
-    <FloorPlan :floorInfo="currentFloorInfo" :sensors="floorSensors" :selectedSensor="selectedSensor" @select-sensor="selectSensor" />
-
-    <button class="panel-toggle panel-toggle--right" :class="{ 'panel-toggle--collapsed': !rightPanelOpen }" @click="rightPanelOpen = !rightPanelOpen">
-      <span class="panel-toggle__icon">{{ rightPanelOpen ? '▸' : '◂' }}</span>
-    </button>
-    <div class="panel-collapsible panel-collapsible--right" :class="{ 'panel-collapsible--closed': !rightPanelOpen }">
-      <StatusSidebar
-        :sensors="floorSensors" :allSensors="allSensors" :selectedSensor="selectedSensor"
-        :floorInfo="currentFloorInfo" :eventLog="eventLog"
-        :floorRooms="floorRooms" :roomCommands="roomCommands"
-        @select-sensor="selectSensor" @resolve-sensor="resolveSensor"
-        @update-room-command="({ roomId, key, value }) => updateRoomCommand(roomId, key, value)"
+<div class="dashboard">
+    <!-- ═══ MODE: VUE PLANS ═══ -->
+    <template v-if="viewMode === 'plans'">
+      <div class="panel-collapsible panel-collapsible--left" :class="{ 'panel-collapsible--closed': !leftPanelOpen }">
+        <FloorSelector :floors="building.floors" :sensors="allSensors" :selectedFloor="selectedFloor" @select-floor="selectFloor" />
+      </div>
+      <button class="panel-toggle panel-toggle--left" :class="{ 'panel-toggle--collapsed': !leftPanelOpen }" @click="leftPanelOpen = !leftPanelOpen">
+        <span class="panel-toggle__icon">{{ leftPanelOpen ? '◂' : '▸' }}</span>
+      </button>
+ 
+      <FloorPlan :floorInfo="currentFloorInfo" :sensors="floorSensors" :selectedSensor="selectedSensor" @select-sensor="selectSensor" />
+ 
+      <button class="panel-toggle panel-toggle--right" :class="{ 'panel-toggle--collapsed': !rightPanelOpen }" @click="rightPanelOpen = !rightPanelOpen">
+        <span class="panel-toggle__icon">{{ rightPanelOpen ? '▸' : '◂' }}</span>
+      </button>
+      <div class="panel-collapsible panel-collapsible--right" :class="{ 'panel-collapsible--closed': !rightPanelOpen }">
+        <StatusSidebar
+          :sensors="floorSensors" :allSensors="allSensors" :selectedSensor="selectedSensor"
+          :floorInfo="currentFloorInfo" :eventLog="eventLog"
+          :floorRooms="floorRooms" :roomCommands="roomCommands"
+          @select-sensor="selectSensor" @resolve-sensor="resolveSensor"
+          @update-room-command="({ roomId, key, value }) => updateRoomCommand(roomId, key, value)"
+        />
+      </div>
+    </template>
+ 
+    <!-- ═══ MODE: VUE MÉTIERS ═══ -->
+    <template v-if="viewMode === 'trades'">
+      <TradesView
+        :sensors="allSensors"
+        :floors="building.floors"
+        :rooms="rooms"
+        :eventLog="eventLog"
+        @select-sensor="selectSensor"
+        @resolve-sensor="resolveSensor"
       />
-    </div>
+    </template>
   </div>
 </template>
