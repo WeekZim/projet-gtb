@@ -8,10 +8,19 @@
     ]
   },
   "rooms": [
-    { "id": "hall_principal", "floor": 0, "label": "Hall Principal", "hasHvac": true, "hasLight": true },
+    { "id": "couloir", "floor": 0, "label": "Couloir", "hasHvac": false, "hasLight": true },
+    { "id": "escalier", "floor": 0, "label": "Escalier RDC", "hasHvac": false, "hasLight": true },
     { "id": "accueil", "floor": 0, "label": "Accueil", "hasHvac": false, "hasLight": true },
-    { "id": "local_technique_rdc", "floor": 0, "label": "Local Technique", "hasHvac": true, "hasLight": true },
-    { "id": "couloir_est_rdc", "floor": 0, "label": "Couloir Est", "hasHvac": false, "hasLight": false },
+    { "id": "entrée_marchandise", "floor": 0, "label": "Entrée Marchandise", "hasHvac": false, "hasLight": true },
+    { "id": "local_maintenance", "floor": 0, "label": "Local Maintenance", "hasHvac": false, "hasLight": true },
+    { "id": "toilettes", "floor": 0, "label": "WC", "hasHvac": false, "hasLight": true },
+    { "id": "localbt1", "floor": 0, "label": "Local Batterie 1", "hasHvac": false, "hasLight": true },
+    { "id": "localbt2", "floor": 0, "label": "Local Batterie 2", "hasHvac": false, "hasLight": true },
+    { "id": "USP1", "floor": 0, "label": "Local UPS 1", "hasHvac": false, "hasLight": true },
+    { "id": "USP2", "floor": 0, "label": "Local UPS 2", "hasHvac": false, "hasLight": true },
+    { "id": "baie1", "floor": 0, "label": "Baie 1", "hasHvac": false, "hasLight": true },
+    { "id": "baie2", "floor": 0, "label": "Baie 2", "hasHvac": false, "hasLight": true },
+    { "id": "local_tgbt", "floor": 0, "label": "Local TGBT", "hasHvac": false, "hasLight": true },
 
     { "id": "open_space_nord", "floor": 1, "label": "Open Space Nord", "hasHvac": true, "hasLight": true },
     { "id": "open_space_centre", "floor": 1, "label": "Open Space Centre", "hasHvac": true, "hasLight": false },
@@ -20,13 +29,14 @@
   ],
   "sensors": [
     { "id": "temp_rdc_01", "name": "Température Accueil", "type": "temperature", "floor": 0, "room": "accueil", "x": 690, "y": 600, "status": "ok", "value": "21.4°C", "numValue": 21.4, "unit": "°C", "lastUpdate": "2026-03-08 10:15" },
-    { "id": "hum_rdc_01", "name": "Humidité Accueil", "type": "humidity", "floor": 0, "room": "accueil", "x": 690, "y": 650, "status": "ok", "value": "45%", "numValue": 45, "unit": "%", "lastUpdate": "2026-03-08 10:15" },
     { "id": "pres_rdc_01", "name": "Présence Accueil", "type": "presence", "floor": 0, "room": "accueil", "x": 540, "y": 775, "status": "ok", "value": "Détecté", "numValue": 1, "unit": "", "lastUpdate": "2026-03-08 10:12" },
     { "id": "door_rdc_01", "name": "Porte Entrée Principale", "type": "door", "floor": 0, "room": "accueil", "x": 615, "y": 775, "status": "ok", "value": "Fermée", "numValue": 0, "unit": "", "lastUpdate": "2026-03-08 10:14" },
-    { "id": "fire_rdc_01", "name": "Détecteur Fumée Accueil", "type": "smoke", "floor": 0, "room": "accueil", "x": 540, "y": 650, "status": "ok", "value": "Normal", "numValue": 0, "unit": "", "lastUpdate": "2026-03-08 10:10" },
-    { "id": "hvac_rdc_01", "name": "CTA Accueil", "type": "hvac", "floor": 0, "room": "accueil", "x": 620, "y": 200, "status": "ok", "value": "Auto — 22°C", "numValue": 22, "unit": "", "lastUpdate": "2026-03-08 09:45" },
     { "id": "light_rdc_01", "name": "Éclairage Accueil", "type": "light", "floor": 0, "room": "accueil", "x": 615, "y": 650, "status": "ok", "value": "85%", "numValue": 85, "unit": "%", "lastUpdate": "2026-03-08 10:00" },
-    { "id": "energy_rdc_01", "name": "Compteur Énergie RDC", "type": "energy", "floor": 0, "room": "local_technique_rdc", "x": 700, "y": 350, "status": "ok", "value": "12.4 kWh", "numValue": 12.4, "unit": "kWh", "lastUpdate": "2026-03-08 10:15" },
+    { "id": "caméra_rdc_01", "name": "Caméra Accueil", "type": "camera", "floor": 0, "room": "accueil", "x": 550, "y": 550, "status": "ok", "value": "Fonctionnelle", "numValue": 85, "unit": "%", "lastUpdate": "2026-03-08 10:00" },
+    
+   
+
+   
 
     { "id": "temp_r1_01", "name": "Température Open Nord", "type": "temperature", "floor": 1, "room": "open_space_nord", "x": 200, "y": 140, "status": "ok", "value": "22.1°C", "numValue": 22.1, "unit": "°C", "lastUpdate": "2026-03-08 10:14" },
     { "id": "temp_r1_02", "name": "Température Open Centre", "type": "temperature", "floor": 1, "room": "open_space_centre", "x": 550, "y": 280, "status": "ok", "value": "22.3°C", "numValue": 22.3, "unit": "°C", "lastUpdate": "2026-03-08 10:13" },

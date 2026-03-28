@@ -5,6 +5,7 @@ import FloorSelector from './FloorSelector.vue'
 import FloorPlan from './FloorPlan.vue'
 import StatusSidebar from './StatusSidebar.vue'
 import TradesView from './TradesView.vue'
+import CtaDetailView from './CtaDetailView.vue'
 
 const viewMode = ref('plans') // plans | trades
 const selectedTrade = ref('cvc')
@@ -25,6 +26,10 @@ const selectedSensor = ref(null)
 const leftPanelOpen = ref(true)
 const rightPanelOpen = ref(true)
 const eventLog = reactive([])
+
+// ── CTA Detail View ──
+const showCtaView = ref(false)
+const ctaSensor = ref(null)
 
 // ═══════════════════════════════════════════════════════
 // ROOM COMMAND STATE — one setpoint per room
@@ -278,7 +283,16 @@ const floorSensors = computed(() => allSensors.filter(s => s.floor === selectedF
 const floorRooms = computed(() => rooms.filter(r => r.floor === selectedFloor.value))
 
 function selectFloor(floorId) { selectedFloor.value = floorId; selectedSensor.value = null }
-function selectSensor(sensor) { selectedSensor.value = sensor; if (!rightPanelOpen.value) rightPanelOpen.value = true }
+function selectSensor(sensor) {
+  // Ouvrir la vue CTA détaillée pour les capteurs de type hvac
+  if (sensor.type === 'hvac') {
+    ctaSensor.value = sensor
+    showCtaView.value = true
+  } else {
+    selectedSensor.value = sensor
+    if (!rightPanelOpen.value) rightPanelOpen.value = true
+  }
+}
 
 // ── Clock ──
 const currentTime = ref('')
@@ -319,6 +333,13 @@ onUnmounted(() => { clearInterval(clockTimer); clearInterval(simTimer); clearInt
         @click="viewMode = 'trades'; selectedSensor = null"
       >
         ◉ Vue Métiers
+      </button>
+      <button
+        class="topbar__tab"
+        @click="showCtaView = true"
+        @close="showCtaView = false"
+      >
+        ◉ Vue CTA
       </button>
     </div>
 
@@ -366,4 +387,11 @@ onUnmounted(() => { clearInterval(clockTimer); clearInterval(simTimer); clearInt
       />
     </template>
   </div>
+
+  <!-- CTA Detail View (modale plein écran) -->
+  <CtaDetailView
+    v-if="showCtaView"
+    :sensor="ctaSensor"
+    @close="showCtaView = false"
+  />
 </template>
